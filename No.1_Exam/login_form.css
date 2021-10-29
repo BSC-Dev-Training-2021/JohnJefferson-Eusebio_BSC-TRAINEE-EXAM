@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.MainContainter {
+    background: url(images/bg_image.jpg), linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%);
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow-x: hidden;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.FormContainer {
+    width: 100%;
+    height: 100%;
+    max-width: 380px;
+    max-height: 500px;
+    border: 1px solid black;
+    background-color: rgba(0,0,0,0.7);
+    
+    margin: auto;
+    
+    
+}
+
+.FormContainer {
+    position: relative;
+    box-sizing: border-box;
+    
+    
+}
+.Login_Form_Header {
+    margin-top: 20px;
+    width: 100%;
+    height: 5vh;
+    border-bottom: 2px solid rgba(226, 226, 226, 0.8);
+    margin-bottom: 30px;
+    
+}
+.Login_Form_Header h2{
+    text-align: center;
+    color: rgba(226, 226, 226, 0.8);
+}
+.input_continer {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    
+    margin:auto;
+    padding: 20px;
+
+}
+input[type="text"]{
+    width: 100%;
+    max-width: 300px;
+    height: 30px;
+    
+    background: transparent;
+    border: none;
+    align-items: center;
+    border-bottom: 1px solid whitesmoke;
+    margin: 10px 4px 4px 4px;
+    padding: 2px;
+}
+input[type="password"]{
+    width: 100%;
+    max-width: 300px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    align-items: center;
+    border-bottom: 1px solid whitesmoke;
+    margin: 10px 4px 4px 4px;
+    padding: 2px;
+}
+
+.input_continer button{
+    background: transparent;
+    border: none;
+    border: 1px solid whitesmoke;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    align-items: center;
+    height: 30px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.6s ease-in-out;
+    margin: 10px 4px 4px 4px;
+    color: rgba(226, 226, 226, 0.8);
+    margin-bottom: 30px;
+}
+.input_continer button:hover{
+ background-color: rgba(226, 226, 226, 0.4);
+ color:red;
+}
+.input_continer a{
+float: right;
+font-size: 15px;
+color: rgba(226, 226, 226, 0.8);
+padding: 2px;
+margin: 10px 4px 4px 4px;
+}
+.input_continer a:hover{
+    color:red;
+}
+
+.Containers {
+    margin-top: 130px;
+}
