@@ -23,3 +23,7 @@
 .price-datails h6{
  padding: 3% 2%;
 }
+.error{
+    background: #f2dede;
+    color: #a94442;
+}
