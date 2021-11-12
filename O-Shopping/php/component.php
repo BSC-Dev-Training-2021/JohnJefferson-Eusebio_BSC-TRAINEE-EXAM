@@ -1,15 +1,15 @@
 <?php
 
-function component($productname, $productprice, $productimg, $productid){
+function component($producttitle, $productprice, $productdiscount, $productdesc, $productimg,  $productid){
     $element="
     <div class=\"col-md-3 col-sm-6 my-3 my-md-0\">
-                <form action=\"index.php\" method=\"post\">
+                <form action=\"php/process.php\" method=\"post\">
                     <div class=\"card shadow\">
                         <div class=\"imgbackground\">
                             <img src=\"$productimg\" alt=\"iphone12\" class=\"img-fluid card-img-top\">
                         </div>
                         <div class=\"card-body\">
-                            <h5 class=\"card-title\">$productname</h5>
+                            <h5 class=\"card-title\">$producttitle</h5>
                             <h6>
                                 <i class=\"fas fa-star\"></i>
                                 <i class=\"fas fa-star\"></i>
@@ -18,11 +18,11 @@ function component($productname, $productprice, $productimg, $productid){
                                 <i class=\"far fa-star\"></i>
                             </h6>
                             <p class=\"card-text\"> 
-                            The phone of your dreams with breakthrough 5G technology on the latest iPhone 12 Pro Max
+                                $productdesc
                             </p>
                             <h5>
-                                <small><s class=\"text-secondary\">₱63,528</s></small>
-                                <span class=\"price\">$productprice</span>
+                                <small><s class=\"text-secondary\">₱ $productdiscount</s></small>
+                                <span class=\"price\">₱ $productprice</span>
                             </h5>
                             <button class=\"btn btn-warning my-3\" type=\"submit\" name=\"add\" >Add to Cart   <i class=\"fas fa-shopping-cart\"></i></button>
                             <input type='hidden' name='product_id' value='$productid'>
@@ -35,7 +35,7 @@ function component($productname, $productprice, $productimg, $productid){
     echo $element;
 }
 
-function cartElement($productimg, $productname, $productprice, $productid){
+function cartElement($productimg, $productname, $productdiscount, $productdesc, $productid){
     $element="
     
     <form action=\"cart.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
@@ -46,22 +46,96 @@ function cartElement($productimg, $productname, $productprice, $productid){
                                 </div>
                                 <div class=\"col-md-6\">
                                     <h5>$productname</h5>
-                                    <small class=\"text-secondary\">Seller: Jay Eusebio</small>
-                                    <h5 class=\"pt-2\">$productprice</h5>
-                                    <button type=\"submit\" class=\"btn btn-warning\">Save for Later</button>
+                                    <small class=\"text-secondary\">$productdesc</small>
+                                    <h5 class=\"pt-2\">₱ $productdiscount</h5>
+                                    <button type=\"submit\" class=\"btn btn-warning\">Update Quantity</button>
                                     <button type=\"submit\" class=\"btn btn-danger mx-2\" name=\"remove\">Remove</button>
                                 </div>
                                 <div class=\"col-md-3 py-5\">
                                     <div>
-                                        <button type=\"button\" class=\"btn bg-light border rounded-circle\"><i class=\"fas fa-minus\"></i></button>
-                                        <input type=\"text\" value=\"1\" class=\"form-control w-25 d-inline\">
-                                        <button type=\"button\" class=\"btn bg-light border rounded-circle\"><i class=\"fas fa-plus\"></i></button>
+                                        <button type=\"button\" class=\"btn bg-light minus-btn disabled border rounded-circle\"><i class=\"fas fa-minus\"></i></button>
+                                        <input type=\"text\" id=\"quantity\" value=\"1\" class=\"form-control w-25 d-inline\">
+                                        <button type=\"button\" class=\"btn bg-light plus-btn disabled border rounded-circle\"><i class=\"fas fa-plus\"></i></button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </form>
 
+    ";
+    echo $element;
+}
+
+function componentuser($producttitle, $productprice, $productdiscount, $productdesc, $productimg,  $productid){
+    $element="
+    <div class=\"col-md-3 col-sm-6 my-3 my-md-0\">
+                <form action=\"php/process.php\" method=\"post\">
+                    <div class=\"card shadow\">
+                        <div class=\"imgbackground\">
+                            <img src=\"$productimg\" alt=\"iphone12\" class=\"img-fluid card-img-top\">
+                        </div>
+                        <div class=\"card-body\">
+                            <h5 class=\"card-title\">$producttitle</h5>
+                            <h6>
+                                <i class=\"fas fa-star\"></i>
+                                <i class=\"fas fa-star\"></i>
+                                <i class=\"fas fa-star\"></i>
+                                <i class=\"fas fa-star\"></i>
+                                <i class=\"far fa-star\"></i>
+                            </h6>
+                            <p class=\"card-text\"> 
+                                $productdesc
+                            </p>
+                            <h5>
+                                <small><s class=\"text-secondary\">₱ $productdiscount </s></small>
+                                <span class=\"price\">₱ $productprice</span>
+                            </h5>
+                            <button class=\"btn btn-warning my-3\" type=\"submit\" name=\"add\" >Add to Cart   <i class=\"fas fa-shopping-cart\"></i></button>
+                            <input type='hidden' name='product_id' value='$productid'>
+                        </div>
+                    </div>      
+                </form>
+            </div> 
+    
+    ";
+    echo $element;
+}
+
+
+function cartElementuser($productimg, $productname, $productdiscount, $productdesc, $productid){
+    $element="
+    
+    <form action=\"cartuser.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
+                        <div class=\"border rounded\">
+                            <div class=\"row bg-white\">
+                                <div class=\"col-md-3\">
+                                    <img src=\"$productimg\" alt=\"Iphone12\" class=\"img-fluid\">
+                                </div>
+                                <div class=\"col-md-6\">
+                                    <h5>$productname</h5>
+                                    <small class=\"text-secondary\">$productdesc</small>
+                                    <h5 class=\"pt-2\">₱ $productdiscount</h5>
+                                    <button type=\"submit\" class=\"btn btn-warning\" name=\"update\">Update Quantity</button>
+                                    <button type=\"submit\" class=\"btn btn-danger mx-2\" name=\"remove\">Remove</button>
+                                </div>
+                                <div class=\"col-md-3 py-5\">
+                                    <div>
+                                        <button type=\"button\" class=\"btn bg-light minus-btn disabled border rounded-circle\"><i class=\"fas fa-minus\"></i></button>
+                                        <input type=\"text\" id=\"quantity\" value=\"1\" class=\"form-control w-25 d-inline\">
+                                        <button type=\"button\" class=\"btn bg-light plus-btn disabled border rounded-circle\"><i class=\"fas fa-plus\"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+    ";
+    echo $element;
+}
+
+function cartbasketElement(){
+    $element="
+    
     ";
     echo $element;
 }

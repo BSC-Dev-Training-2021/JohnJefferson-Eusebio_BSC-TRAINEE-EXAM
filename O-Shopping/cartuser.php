@@ -13,20 +13,20 @@ require_once 'php/component.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
-    <link rel="stylesheet" href="./script/styles.css">
+    <link rel="stylesheet" href="script/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/fontawesome.min.css" integrity="sha512-Rcr1oG0XvqZI1yv1HIg9LgZVDEhf2AHjv+9AuD1JXWGLzlkoKDVvE925qySLcEywpMAYA/rkg296MkvqBF07Yw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body class="bg-light">
     <?php
-        require_once('php/headercart.php');
+        require_once('php/headercartuser.php');
     ?>
 
     <div class="container-fluid">
         <div class="row px-5">
             <div class="col-md-7">
-            <a href="./index.php" class="nav-item nav-link text-dark "><i class="fas fa-arrow-left"> Back to Shop</i></a>
+            <a href="userinterface.php" class="nav-item nav-link text-dark "><i class="fas fa-arrow-left"> Back to Shop</i></a>
                 <div class="shopping-cart">
                     <h6 class="mt-3">My Cart</h6>
                     <hr>
@@ -35,14 +35,13 @@ require_once 'php/component.php';
                     $total = 0;
                         if(isset($_SESSION['cart'])){
                             $product_id = array_column($_SESSION['cart'], 'product_id');
-
-                    
+                          
                             $result = $mysqli->query("SELECT * FROM products") or die($mysqli->errors);
                             
                             while($row = mysqli_fetch_assoc($result)){
                             foreach($product_id as $id){
                                 if($row['id']==$id){
-                                    cartElement($row['prod_image'], $row['prod_title'], $row['prod_discount'], $row['prod_description'], $row['id']);
+                                    cartElementuser($row['prod_image'], $row['prod_title'], $row['prod_discount'], $row['prod_description'], $row['id']);
                                     $total = $total + (int)$row['prod_discount'];
                                 }
                             }

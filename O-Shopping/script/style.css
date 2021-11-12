@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+    
+}
+body{
+    background-image: url(images/bg-images/bg_image.jpg);
+    background-color: #cccccc; 
+}
+.container{
+    width: 100%;
+    max-width: 500px;
+    margin-top: 70px;
+    background: rgba(0, 0, 0, 0.6);
+    
+    
+}
